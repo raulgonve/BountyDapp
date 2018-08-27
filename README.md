@@ -19,13 +19,15 @@ As a bounty hunter, I can submit work to a bounty for review.
 - How to set it up
 	
 	1.- Unzip the file
+	
 	2.- Using Truffle in the console
 	3.- Run Ganache with port 8545 or truffle develop in the same port
-	4.- Compile the project (truffle compile)
-	5.- Migrate the project (truffle migrate)
-	6.- Run the tests (truffle test)
-	7.- For use the IU
-		7.1.- Type in the console npm run dev
-		7.2.- Open Browser in localhost:8080
-		7.3.- Log like a Job Poster (user: user1, pass: 1234) 
-		7.4.- Log like a Hunter (user: user2, pass: 1234)
+	4.- Install NPM (#npm install), this will add the node_modules folder
+	5.- Compile the project (#truffle compile)
+	6.- Migrate the project (#truffle migrate)
+	7.- Run the tests (#truffle test)
+	8.- For use the IU
+		8.1.- Type in the console #npm run dev
+		8.2.- Open Browser in localhost:8080
+		8.3.- Log like a Job Poster (user: user1, pass: 1234) 
+		8.4.- Log like a Hunter (user: user2, pass: 1234)

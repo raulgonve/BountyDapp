@@ -118,10 +118,25 @@ const App = {
   },
 
   NewSubmissions : function (i) {
+
+    const self = this
     var item = listBounties[i]
     document.getElementById('container').innerHTML = SubmitionPage()
     document.getElementById('bounty-title').innerHTML = item.title
+
+    document.getElementById('form-new-submission').addEventListener('submit', function (e) {
+      // aqui evita que el formulario actualice la pagina, que es lo que hacen estos formularios por defecto
+      if (e.preventDefault) e.preventDefault()
+
+      alert('Submission Sent')
+      self.BountiesList()
+      return false
+    
+    })
+
   },
+
+
 
   MyBounties : function () {
     document.getElementById('container').innerHTML = MyBountiesPage()

@@ -1,2 +1,11 @@
 <a class="btn btn-xs float-right btn-default" onclick="App.BountiesList()">Go back</a>
 <h1 id="bounty-title"></h1>
+
+<form class="form-login" id="form-new-submission"  style="margin-top:20%">
+    <h1 class="h3 mb-3 font-weight-normal">Create New Submission</h1>
+    <label for="inputUser" class="sr-only">Propose Description</label>
+    <input type="text" id="inputTitle" class="form-control mb-3" placeholder="Propose Description" required autofocus>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Send</button>
+    <button class="btn btn-lg btn-primary btn-block" type="reset">Reset</button>
+    <div id="errAlert"></div>
+</form>
