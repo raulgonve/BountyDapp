@@ -1,0 +1,32 @@
+[
+    {
+        "title": "First Bounty",
+        "description": "First Description",
+        "amount" : 10
+    },
+
+    {
+        "title": "Second Bounty",
+        "description": "Second Description",
+        "amount" : 20
+    },
+
+    {
+        "title": "Third Bounty",
+        "description": "Third Description",
+        "amount" : 30
+    },
+
+    {
+        "title": "Fourth Bounty",
+        "description": "Fourth Description",
+        "amount" : 40
+    },
+
+    {
+        "title": "Fifth Bounty",
+        "description": "Fifth Description",
+        "amount" : 50
+    }
+
+]
