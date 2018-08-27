@@ -48,3 +48,15 @@ As a bounty hunter, I can submit work to a bounty for review.
 		8.3.- Log like a Job Poster (user: user1, pass: 1234) 
 
 		8.4.- Log like a Hunter (user: user2, pass: 1234)
+
+-	Notes:
+
+	1.- UI working with the contract in the begining and for create new bounty
+
+	2.- UI other functions are not sending or getting info from the contract, but all the functions needed works in the contract and the tests using truffle
+
+	3.- 5 diferents test running ok with tuffle
+
+	4.- ethPM implement with the truffle box webpack
+	
+	5.- 3 documents explain differents thing about the project (avoiding_common_attacks.md, design_pattern_desicions.md ans this the README.md)
