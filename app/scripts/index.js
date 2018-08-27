@@ -24,17 +24,12 @@ import { default as Web3 } from 'web3'
 import { default as TruffleContract } from 'truffle-contract'
 
 // Import our contract artifacts and turn them into usable abstractions.
-// quieres ver el ejemplo web? sip
 import bountyDappArtifact from '../../build/contracts/BountyDapp.json'
 
 // import { userInfo } from 'os'
 
 // BountyDapp is our usable abstraction, which we'll use through the code below.
 const BountyDapp = TruffleContract(bountyDappArtifact)
-
-// The following code is simple to show off interacting with your contracts.
-// As your needs grow you will likely need to change its form and structure.
-// For application bootstrapping, check out window.addEventListener below.
 
 let accounts
 let account
@@ -75,15 +70,16 @@ const App = {
 
       accounts = accs
       account = accounts[0]
-    })    
+    })
     self.viewLogin()
   },
 
   // New Functions
 
+  // Created a new bounty by the Job Poster
   NewBounty : function () {
     document.getElementById('container').innerHTML = BountyPage()
-    
+
     var bountyForm = document.getElementById('form-new-bounty')
     bountyForm.addEventListener('submit', function (e) {
       if (e.preventDefault) e.preventDefault()
@@ -103,6 +99,7 @@ const App = {
     })
   },
 
+  // Print all the bounties already created
   BountiesList : function () {
     document.getElementById('container').innerHTML = HunterPage()
 
@@ -119,6 +116,7 @@ const App = {
     element.innerHTML = listData
   },
 
+  // Let the Hunters sent submissions to the bounty selected
   NewSubmissions : function (i) {
 
     const self = this
@@ -127,7 +125,7 @@ const App = {
     document.getElementById('bounty-title').innerHTML = item.title
 
     document.getElementById('form-new-submission').addEventListener('submit', function (e) {
-      // aqui evita que el formulario actualice la pagina, que es lo que hacen estos formularios por defecto
+      // prevent refresh the window
       if (e.preventDefault) e.preventDefault()
 
       alert('Submission Sent')
@@ -138,7 +136,8 @@ const App = {
 
   },
 
-  AnswerSubmits : function(i) {
+  // Here the Job Poster acceted or decline the submissions received
+  AnswerSubmits : function (i) {
 
     document.getElementById('container').innerHTML = AnswerSubmitsPage()
 
@@ -149,6 +148,7 @@ const App = {
     var listData = ''
     element.innerHTML = ''
 
+    // print the list
     for (var j in listAnswerSubmits) {
       var subitem = listAnswerSubmits[j]
       listData += '<tr><td>' + subitem.description + '</td><td><a class="btn btn-success btn-xs text-white" onclick="App.AcceptAnswerSubmit('+j+')">Accept</a> <a class="btn btn-danger btn-xs text-white"  onclick="App.DeclineAnswerSubmit('+j+')">Decline</a></td></tr>'
@@ -159,6 +159,7 @@ const App = {
 
   },
 
+  // confirm the answer was accepted
   AcceptAnswerSubmit : function (i) {
 
     var item = listAnswerSubmits[i]
@@ -169,6 +170,7 @@ const App = {
 
   },
   
+  // confirm the answer was decline
   DeclineAnswerSubmit : function (i) {
 
     var item = listAnswerSubmits[i]
@@ -179,8 +181,7 @@ const App = {
 
   },
 
-
-
+  // print all the bounties created by the Job Poster loggued
   MyBounties : function () {
     document.getElementById('container').innerHTML = MyBountiesPage()
 
@@ -196,10 +197,12 @@ const App = {
     element.innerHTML = listData
   },
 
+  // Call initial page for the Job Poster
   Poster : function () {
     document.getElementById('container').innerHTML = PosterPage()
   },
 
+  // LogOut the user and back to the beggining
   logout : function () {
     
     const self = this
@@ -213,6 +216,7 @@ const App = {
 
   },
 
+  // check the login form
   viewLogin : function () {
     const self = this
 
@@ -222,17 +226,17 @@ const App = {
 
     var loginForm = document.getElementById('form-login')
 
-    // esta funcion captura el evento cuando el formulario es enviado, el boton hace el submit, este lo atrapa
+    // this function catch the event when form is sent
     loginForm.addEventListener('submit', function (e) {
-      // aqui evita que el formulario actualice la pagina, que es lo que hacen estos formularios por defecto
+      // prevent refresh the window
       if (e.preventDefault) e.preventDefault()
       var userLogged = null
 
-      // aqui reviso linea por linea los usuarios que estan en el archivo userse.json, dataUsers esta caragado
+      // get the data from Json file
       for (var j in dataUsers) {
         var ul = dataUsers[j]
 
-        // COMPARO LA INFORMACION DE LOS DATOS DEL LOGIN
+        // identify the user
         if (ul.login === document.getElementById('inputUser').value && ul.pass === document.getElementById('inputPassword').value) {
           userLogged = ul
         }
