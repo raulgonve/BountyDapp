@@ -10,10 +10,12 @@ import HunterPage from '../content/hunter.html'
 import SubmitionPage from '../content/new_submission.html'
 import BountyPage from '../content/new_bounty.html'
 import MyBountiesPage from '../content/my_bounties.html'
+import AnswerSubmitsPage from '../content/answer_submits.html'
 
 // Data
 import dataUsers from '../data/users.json'
 import listBounties from '../data/bounties.json'
+import listAnswerSubmits from '../data/submits.json'
 
 // Import libraries we need.
 import 'bootstrap'
@@ -136,6 +138,47 @@ const App = {
 
   },
 
+  AnswerSubmits : function(i) {
+
+    document.getElementById('container').innerHTML = AnswerSubmitsPage()
+
+    const self = this
+    var item = listBounties[i]
+    let element = document.getElementById('answer-submits-list')
+
+    var listData = ''
+    element.innerHTML = ''
+
+    for (var j in listAnswerSubmits) {
+      var subitem = listAnswerSubmits[j]
+      listData += '<tr><td>' + subitem.description + '</td><td><a class="btn btn-success btn-xs text-white" onclick="App.AcceptAnswerSubmit('+j+')">Accept</a> <a class="btn btn-danger btn-xs text-white"  onclick="App.DeclineAnswerSubmit('+j+')">Decline</a></td></tr>'
+    }
+
+    element.innerHTML = listData
+    document.getElementById('answer-submits-title').innerHTML = item.title
+
+  },
+
+  AcceptAnswerSubmit : function (i) {
+
+    var item = listAnswerSubmits[i]
+
+    alert(item.description + ' Accepted')
+
+    this.MyBounties()
+
+  },
+  
+  DeclineAnswerSubmit : function (i) {
+
+    var item = listAnswerSubmits[i]
+
+    alert(item.description + ' Decline')
+
+    this.MyBounties()
+
+  },
+
 
 
   MyBounties : function () {
@@ -148,7 +191,7 @@ const App = {
 
     for (var i in listBounties) {
       var item = listBounties[i]
-      listData += '<tr><td>' + item.title + '</td><td>' + item.description + '</td><td>' + item.amount + '</td><td><a class="btn text-white btn-success btn-inverse btn-sm" onclick="App.NewSubmissions(' + i + ')">Apply</a></td></tr>'
+      listData += '<tr><td>' + item.title + '</td><td>' + item.description + '</td><td>' + item.amount + '</td><td><a class="btn text-white btn-success btn-inverse btn-sm" onclick="App.AnswerSubmits(' + i + ')">View Submits</a></td></tr>'
     }
     element.innerHTML = listData
   },
