@@ -9,25 +9,42 @@ As a bounty hunter, I can submit work to a bounty for review.
 
 
 - What does your project do?
+
 	The BountyDapp basically is an Dapp that does 3 things:
+
 	1.- Create New Bounties (Job Posters)
+
 	2.- Create New Submissions (Hunters)
+
 	3.- Accept or Reject Submissions (Job Posters)
+
 		3.1.- If accept, pay to the hunter
+
 		3.2.- If Reject the submission don't pay
+		
 
 - How to set it up
 	
 	1.- Unzip the file
-	
+
 	2.- Using Truffle in the console
+
 	3.- Run Ganache with port 8545 or truffle develop in the same port
+
 	4.- Install NPM (#npm install), this will add the node_modules folder
+
 	5.- Compile the project (#truffle compile)
+
 	6.- Migrate the project (#truffle migrate)
+
 	7.- Run the tests (#truffle test)
+
 	8.- For use the IU
+
 		8.1.- Type in the console #npm run dev
+
 		8.2.- Open Browser in localhost:8080
+
 		8.3.- Log like a Job Poster (user: user1, pass: 1234) 
+
 		8.4.- Log like a Hunter (user: user2, pass: 1234)
